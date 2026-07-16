@@ -19,7 +19,7 @@ const spriteData=[
 
     frames:[
 
-        "Assets/lyria-1.png"
+        "Assets/lyria-sprite-1.png"
 
     ]
 
@@ -40,10 +40,10 @@ const spriteData=[
 
     frames:[
 
-        "Assets/lebre-1.png",
-        "Assets/lebre-2.png",
-        "Assets/lebre-3.png",
-        "Assets/lebre-2.png"
+        "Assets/lebre-sprite-1.png",
+        "Assets/lebre-sprite-2.png",
+        "Assets/lebre-sprite-3.png",
+        "Assets/lebre-sprite-2.png"
 
     ]
 
@@ -64,10 +64,10 @@ const spriteData=[
 
     frames:[
 
-        "Assets/golem-1.png",
-        "Assets/golem-2.png",
-        "Assets/golem-3.png",
-        "Assets/golem-2.png"
+        "Assets/golem-sprite-1.png",
+        "Assets/golem-sprite-2.png",
+        "Assets/golem-sprite-3.png",
+        "Assets/golem-sprite-2.png"
 
     ]
 

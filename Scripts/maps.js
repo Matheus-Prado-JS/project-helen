@@ -18,7 +18,7 @@ const mapsData={
 
             {
 
-                src:"Assets/bosque-1.png",
+                src:"Assets/bosque-map-1.png",
 
                 alt:"Entrada do Bosque",
 
@@ -35,7 +35,7 @@ const mapsData={
 
             {
 
-                src:"Assets/bosque-2.png",
+                src:"Assets/bosque-map-2.png",
 
                 alt:"Ruínas antigas dentro do bosque",
 
@@ -53,7 +53,7 @@ const mapsData={
 
             {
 
-                src:"Assets/bosque-3.png",
+                src:"Assets/bosque-map-3.png",
 
                 alt:"Lago escondido no Bosque",
 
@@ -86,7 +86,7 @@ const mapsData={
 
             {
 
-                src:"Assets/biblioteca-1.png",
+                src:"Assets/biblioteca-map-1.png",
 
                 alt:"Salão principal da Biblioteca do Esquecimento",
 
@@ -103,7 +103,7 @@ const mapsData={
 
             {
 
-                src:"Assets/biblioteca-2.png",
+                src:"Assets/biblioteca-map-2.png",
 
                 alt:"Corredores da Biblioteca do Esquecimento",
 
@@ -120,7 +120,7 @@ const mapsData={
 
             {
 
-                src:"Assets/biblioteca-3.png",
+                src:"Assets/biblioteca-map-3.png",
 
                 alt:"Arquivo profundo da Biblioteca do Esquecimento",
 
@@ -153,7 +153,7 @@ const mapsData={
 
             {
 
-                src:"Assets/centro-1.png",
+                src:"Assets/centro-map-1.png",
 
                 alt:"Praça central da cidade de Aster",
 
@@ -170,7 +170,7 @@ const mapsData={
 
             {
 
-                src:"Assets/centro-2.png",
+                src:"Assets/centro-map-2.png",
 
                 alt:"Ruas residenciais do Centro de Aster",
 
@@ -187,7 +187,7 @@ const mapsData={
 
             {
 
-                src:"Assets/centro-3.png",
+                src:"Assets/centro-map-3.png",
 
                 alt:"Área esquecida do Centro de Aster",
 
