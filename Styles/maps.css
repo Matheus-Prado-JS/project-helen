@@ -1,0 +1,787 @@
+/*====================================*/
+/* SUGESTÕES DE MAPAS                 */
+/*====================================*/
+
+.maps-section{
+
+    overflow:hidden;
+
+}
+
+/*====================================*/
+/* BOTÕES DOS MAPAS                   */
+/*====================================*/
+
+.map-tabs{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:35px;
+
+    padding-bottom:28px;
+
+}
+
+.map-tabs::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:50%;
+
+    width:80%;
+
+    height:1px;
+
+    transform:translateX(-50%);
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(231,217,167,.18),
+
+        transparent
+
+    );
+
+}
+
+.map-tab{
+
+    position:relative;
+
+    min-width:145px;
+
+    padding:13px 24px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.025);
+
+    color:#aaa;
+
+    font-family:'Cinzel',serif;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:
+
+        color .3s ease,
+
+        background .3s ease,
+
+        border-color .3s ease,
+
+        box-shadow .3s ease,
+
+        transform .3s ease;
+
+}
+
+.map-tab::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-7px;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:#e7d9a7;
+
+    opacity:0;
+
+    transform:translateX(-50%) scale(0);
+
+    box-shadow:0 0 14px rgba(231,217,167,.8);
+
+    transition:.3s ease;
+
+}
+
+.map-tab:hover{
+
+    color:#e7d9a7;
+
+    border-color:rgba(231,217,167,.25);
+
+    transform:translateY(-2px);
+
+}
+
+.map-tab.active{
+
+    color:#f2e8c3;
+
+    border-color:rgba(231,217,167,.4);
+
+    background:rgba(231,217,167,.09);
+
+    box-shadow:
+
+        0 10px 25px rgba(0,0,0,.18),
+
+        inset 0 0 18px rgba(231,217,167,.035);
+
+}
+
+.map-tab.active::before{
+
+    opacity:1;
+
+    transform:translateX(-50%) scale(1);
+
+}
+
+/*====================================*/
+/* CONTEÚDO PRINCIPAL                 */
+/*====================================*/
+
+.map-content{
+
+    display:grid;
+
+    grid-template-columns:minmax(0,1.45fr) minmax(300px,.75fr);
+
+    gap:42px;
+
+    align-items:center;
+
+}
+
+/*====================================*/
+/* CARROSSEL                          */
+/*====================================*/
+
+.map-carousel{
+
+    min-width:0;
+
+}
+
+.map-image-wrapper{
+
+    position:relative;
+
+    overflow:hidden;
+
+    width:100%;
+
+    aspect-ratio:16 / 9;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:22px;
+
+    background:#080d0b;
+
+    box-shadow:
+
+        0 30px 60px rgba(0,0,0,.38),
+
+        inset 0 0 35px rgba(0,0,0,.2);
+
+}
+
+.map-image-wrapper::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    border:1px solid rgba(231,217,167,.07);
+
+    border-radius:14px;
+
+}
+
+.map-image-wrapper img{
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+
+        opacity .35s ease,
+
+        transform .7s ease;
+
+}
+
+.map-image-wrapper:hover img{
+
+    transform:scale(1.025);
+
+}
+
+.map-image-wrapper img.changing{
+
+    opacity:0;
+
+    transform:scale(1.03);
+
+}
+
+.map-image-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            transparent 55%,
+
+            rgba(3,8,6,.72) 100%
+
+        ),
+
+        radial-gradient(
+
+            circle at center,
+
+            transparent 45%,
+
+            rgba(2,5,4,.32) 100%
+
+        );
+
+}
+
+/*====================================*/
+/* SETAS                              */
+/*====================================*/
+
+.carousel-arrow{
+
+    position:absolute;
+
+    top:50%;
+
+    z-index:4;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:48px;
+
+    height:48px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+    background:rgba(5,10,8,.65);
+
+    backdrop-filter:blur(8px);
+
+    color:#e7d9a7;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transform:translateY(-50%);
+
+    transition:
+
+        background .25s ease,
+
+        border-color .25s ease,
+
+        transform .25s ease,
+
+        box-shadow .25s ease;
+
+}
+
+.carousel-arrow:hover{
+
+    background:rgba(231,217,167,.14);
+
+    border-color:rgba(231,217,167,.4);
+
+    box-shadow:0 0 22px rgba(231,217,167,.12);
+
+}
+
+.carousel-arrow-left{
+
+    left:22px;
+
+}
+
+.carousel-arrow-left:hover{
+
+    transform:translateY(-50%) translateX(-3px);
+
+}
+
+.carousel-arrow-right{
+
+    right:22px;
+
+}
+
+.carousel-arrow-right:hover{
+
+    transform:translateY(-50%) translateX(3px);
+
+}
+
+/*====================================*/
+/* CONTADOR                           */
+/*====================================*/
+
+.map-image-counter{
+
+    position:absolute;
+
+    right:24px;
+
+    bottom:20px;
+
+    z-index:4;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:8px 13px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:999px;
+
+    background:rgba(4,9,7,.62);
+
+    backdrop-filter:blur(8px);
+
+    color:#e7d9a7;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+}
+
+.counter-divider{
+
+    width:18px;
+
+    height:1px;
+
+    background:rgba(231,217,167,.35);
+
+}
+
+/*====================================*/
+/* INDICADORES                        */
+/*====================================*/
+
+.carousel-dots{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    min-height:25px;
+
+    margin-top:18px;
+
+}
+
+.carousel-dot{
+
+    width:7px;
+
+    height:7px;
+
+    padding:0;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.17);
+
+    cursor:pointer;
+
+    transition:
+
+        width .3s ease,
+
+        background .3s ease,
+
+        box-shadow .3s ease;
+
+}
+
+.carousel-dot:hover{
+
+    background:rgba(231,217,167,.5);
+
+}
+
+.carousel-dot.active{
+
+    width:28px;
+
+    background:#e7d9a7;
+
+    box-shadow:0 0 12px rgba(231,217,167,.3);
+
+}
+
+/*====================================*/
+/* DESCRIÇÃO DO MAPA                  */
+/*====================================*/
+
+.map-description{
+
+    position:relative;
+
+    padding-left:5px;
+
+}
+
+.map-category{
+
+    display:inline-block;
+
+    margin-bottom:17px;
+
+    color:#8fbaa0;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:2.4px;
+
+}
+
+.map-description h3{
+
+    margin-bottom:17px;
+
+    font-family:'Cinzel',serif;
+
+    color:#e7d9a7;
+
+    font-size:34px;
+
+    line-height:1.2;
+
+}
+
+.map-title-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    width:100%;
+
+    margin-bottom:24px;
+
+}
+
+.map-title-divider::before{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:linear-gradient(
+
+        90deg,
+
+        rgba(231,217,167,.36),
+
+        transparent
+
+    );
+
+}
+
+.map-title-divider span{
+
+    width:7px;
+
+    height:7px;
+
+    margin-left:-1px;
+
+    border:1px solid rgba(231,217,167,.5);
+
+    transform:rotate(45deg);
+
+}
+
+.map-description h4{
+
+    margin-bottom:13px;
+
+    color:#f0e8ca;
+
+    font-family:'Cinzel',serif;
+
+    font-size:18px;
+
+}
+
+.map-description p{
+
+    min-height:145px;
+
+    color:#ccc;
+
+    font-size:15px;
+
+    line-height:1.85;
+
+    transition:opacity .25s ease;
+
+}
+
+.map-description.changing{
+
+    opacity:.25;
+
+}
+
+/*====================================*/
+/* DETALHES                           */
+/*====================================*/
+
+.map-details{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:12px;
+
+    margin-top:27px;
+
+}
+
+.map-detail{
+
+    padding:16px;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.025);
+
+}
+
+.map-detail-label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#777;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+}
+
+.map-detail strong{
+
+    color:#d8d8d8;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    line-height:1.5;
+
+}
+
+/*====================================*/
+/* RESPONSIVIDADE                     */
+/*====================================*/
+
+@media(max-width:950px){
+
+    .map-content{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .map-description{
+
+        padding-left:0;
+
+    }
+
+    .map-description p{
+
+        min-height:0;
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    .map-tabs{
+
+        display:grid;
+
+        grid-template-columns:repeat(3,1fr);
+
+        gap:8px;
+
+    }
+
+    .map-tab{
+
+        min-width:0;
+
+        padding:12px 8px;
+
+        font-size:11px;
+
+    }
+
+    .carousel-arrow{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .carousel-arrow-left{
+
+        left:12px;
+
+    }
+
+    .carousel-arrow-right{
+
+        right:12px;
+
+    }
+
+    .map-image-counter{
+
+        right:14px;
+
+        bottom:13px;
+
+    }
+
+    .map-description h3{
+
+        font-size:28px;
+
+    }
+
+    .map-details{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:450px){
+
+    .map-tabs{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .map-image-wrapper{
+
+        border-radius:16px;
+
+    }
+
+    .carousel-arrow{
+
+        width:36px;
+
+        height:36px;
+
+        font-size:16px;
+
+    }
+
+}

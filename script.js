@@ -1,39 +1,78 @@
-const terminalText = document.getElementById("terminalText");
-const accessBtn = document.getElementById("accessBtn");
+const particles=document.querySelector(".particles");
 
-const logs = [
-    "[BOOT] Sistema Helen reiniciado.",
-    "[WARNING] Núcleo de Ashbury respondendo sem autorização.",
-    "[CAMERA] Movimento detectado no setor residencial.",
-    "[POWER] Energia redirecionada para portas internas.",
-    "[AUDIO] Voz desconhecida captada no corredor leste.",
-    "[ERROR] Protocolo de contenção falhou.",
-    "[HELEN] Eu ainda estou aqui."
-];
+const amount=70;
 
-let index = 0;
+for(let i=0;i<amount;i++){
 
-function writeLog() {
-    if (index < logs.length) {
-        terminalText.textContent += "\n" + logs[index];
-        index++;
-        setTimeout(writeLog, 850);
-    }
+    const dot=document.createElement("span");
+
+    const size=Math.random()*4+1;
+
+    dot.style.position="absolute";
+
+    dot.style.width=size+"px";
+
+    dot.style.height=size+"px";
+
+    dot.style.borderRadius="50%";
+
+    dot.style.background="rgba(230,220,170,.8)";
+
+    dot.style.left=Math.random()*100+"%";
+
+    dot.style.top=Math.random()*100+"%";
+
+    dot.style.opacity=Math.random();
+
+    dot.style.animation=`
+        float
+        ${8+Math.random()*12}s
+        linear
+        infinite`;
+
+    dot.style.animationDelay=
+    Math.random()*10+"s";
+
+    particles.appendChild(dot);
+
 }
 
-setTimeout(() => {
-    terminalText.textContent = logs[0];
-    index = 1;
-    writeLog();
-}, 700);
+const style=document.createElement("style");
 
-accessBtn.addEventListener("click", () => {
-    document.body.classList.add("glitch");
+style.innerHTML=`
 
-    terminalText.textContent += "\n\n[ACCESS] Tentativa de acesso detectada.";
-    terminalText.textContent += "\n[HELEN] Você não deveria estar aqui.";
+@keyframes float{
 
-    setTimeout(() => {
-        document.body.classList.remove("glitch");
-    }, 900);
-});
+0%{
+
+transform:translateY(0px);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:.8;
+
+}
+
+50%{
+
+opacity:.3;
+
+}
+
+100%{
+
+transform:translateY(-120px);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(style);
